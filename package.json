@@ -42,9 +42,12 @@
   },
   "author": "",
   "license": "ISC",
+  "lint-staged": {
+    "*.js": "eslint --fix"
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint ./src/app.js --fix"
+      "pre-commit": "lint-staged"
     }
   }
 }
