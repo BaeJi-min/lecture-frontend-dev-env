@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
-    "@babel/core": "^7.7.7",
+    "@babel/cli": "^7.22.10",
+    "@babel/core": "^7.22.10",
+    "@babel/plugin-transform-arrow-functions": "^7.22.5",
+    "@babel/plugin-transform-block-scoping": "^7.22.10",
+    "@babel/plugin-transform-strict-mode": "^7.22.5",
     "@babel/preset-env": "^7.7.7",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
@@ -17,11 +21,14 @@
     "eslint-plugin-prettier": "^3.1.2",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^12.5.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier": "^1.19.1",
     "regenerator-runtime": "^0.13.3",
+    "sass": "^1.66.1",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.1.2",
     "terser-webpack-plugin": "^2.3.2",
@@ -34,5 +41,10 @@
     "build": "./node_modules/.bin/webpack"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint ./src/app.js --fix"
+    }
+  }
 }

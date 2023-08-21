@@ -14,16 +14,23 @@ module.exports = {
     filename: "[name].js",
     path: path.resolve("./dist"),
   },
+  resolve: {
+    extensions: ['.js', '.scss']
+  },
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test:/\.s[ac]ss$/i,
         use: [
           process.env.NODE_ENV === 'production'
             ? MiniCssExtractPlugin.loader
-            :'style-loader',
-          'css-loader',
+            :'style-loader', 'css-loader', 'sass-loader'
         ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
       },
       // {
       //   test: /\.(png|jpg|gif|svg)$/i,
